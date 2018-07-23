@@ -11,11 +11,19 @@ export class VendasService {
 
   constructor(private http: HttpClient) { }
 
-  listar() : Observable<any> {
+  listar(): Observable<any> {
     return this.http.get<any>(`${this.api}/vendas`);
   }
 
-  listarClientes() : Observable<any> {
+  listarClientes(): Observable<any> {
     return this.http.get<any>(`${this.api}/clientes`);
+  }
+
+  listarProdutos(): Observable<any> {
+    return this.http.get<any>(`${this.api}/produtos`);
+  }
+
+  adicionar(venda: any): Observable<any> {
+    return this.http.post<any>(`${this.api}/vendas`, venda);
   }
 }
